@@ -53,7 +53,15 @@ export default async function handler(
             message: "Form submitted successfully!",
             data: response.data
         })
-    } catch (e) {
-        return res.status(e.code).send({ message: e.message })
+    } 
+    catch (error) {
+        // Ensure 'error' is typed correctly
+        if (error instanceof Error) {
+            // Handle as an Error object
+            return res.status(500).send({ message: error.message });
+        }
+
+        // Handle as a generic case
+        return res.status(500).send({ message: 'An unknown error occurred' });
     }
 }

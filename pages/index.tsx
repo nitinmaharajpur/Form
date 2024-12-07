@@ -5,12 +5,12 @@ const Home: NextPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [age, setAge] = useState('');
-  const [message, setMessage] = useState('');
+  // const [message, setMessage] = useState('');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    let form = {
+    const form = {
       name,
       email,
       age: parseInt(age), // Parse age to an integer
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
     setName('');
     setEmail('');
     setAge('');
-    setMessage('');
+    // setMessage('');
   }
 
   return (
